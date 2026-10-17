@@ -17,7 +17,7 @@ jobs:
     - name: Deploy to User Web Directory
       run: |
         echo "Deploying index.html to user directory..."
-        mkdir -p /home/tunggul/public_html
-        cp index.html /home/tunggul/public_html/index.html
-        chmod 644 /home/tunggul/public_html/index.html
+        mkdir -p "$HOME/public_html"
+        cp index.html "$HOME/public_html/index.html"
+        chmod 644 "$HOME/public_html/index.html"
         echo "Deployment complete successfully!"
