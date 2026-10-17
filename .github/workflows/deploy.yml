@@ -1,0 +1,21 @@
+name: CI/CD Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Deploy to User Web Directory
+      run: |
+        echo "Deploying index.html to user directory..."
+        mkdir -p /home/tunggul/public_html
+        cp index.html /home/tunggul/public_html/index.html
+        chmod 644 /home/tunggul/public_html/index.html
+        echo "Deployment complete successfully!"
